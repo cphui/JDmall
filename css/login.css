@@ -1,0 +1,277 @@
+/* ==========
+   工具样式
+   ==========
+              */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+/*自定义样式*/
+.header {
+	width: 990px;
+	margin: 0 auto;
+}
+.header .logo {
+	width: 300px;
+	height: 60px;
+	margin: 10px 0;
+	font-size: 0;
+	position: relative;
+}
+.header .logo b {
+	width: 110px;
+	height: 40px;
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 0;
+	background: url(../img/login-welcome.png) no-repeat;
+}
+.content {
+	width: 100%;
+	height: 475px;
+	background: #e93854;
+}
+.content .container {
+	width: 990px;
+	height: 475px;
+	background-color: #E93854;
+	background: url(../img/login-contentImg.png) no-repeat;
+	margin: 0 auto;
+}
+.content .login-form {
+	width: 346px;
+	background: #fff;
+	float: right;
+	position: relative;
+	top: 40px;
+}
+.content .login-way {
+	height: 55px;
+	text-align: center;
+	border-bottom: 1px solid #F4F4F4;
+}
+.content .login-way .active {
+	color: #e4393c;
+}
+.content .login-way-box {
+	width: 173px;
+	height: 55px;
+	float: left;
+	position: relative;
+}
+.content .login-way-box a {
+	color: #666;
+	font-size: 18px;
+	width: 99%;
+	position: absolute;
+	top: 18px;
+	left: 0;
+}
+.content .login-way-box a:first-child {
+	border-right: 1px solid #F4F4F4;
+}
+.content .login-qrcode {
+	padding: 20px;
+	text-align: center;
+	
+}
+.content .login-qrcode .qrcode-box {
+	text-align: center;
+	height: 168px;
+	position: relative;
+}
+.content .login-qrcode .qrcode-box img {
+	padding: 8px;
+	border: 1px solid #F4F4F4;
+	position: absolute;
+	left: 64px;
+}
+.content .login-qrcode .qrcode-help {
+	width: 141px;
+	height: 168px;
+	position: absolute;
+	background: url(../img/phone-orange.png) no-repeat;
+	top: -2px;
+	right: -18px;
+	display: none;
+}
+.content .login-qrcode .qrcode-prompt {
+	margin: 18px auto;
+}
+.content .login-qrcode .qrcode-prompt a {
+	color: #e4393c;
+	margin-right: 10px;
+}
+.content .login-qrcode .qr-coagent {
+	margin-left: 40px;
+}
+.content .login-qrcode .qr-coagent ul li {
+	float: left;
+	position: relative;
+	margin-right: 18px;
+}
+.content .login-qrcode .qr-coagent ul li b {
+	background: url(../img/qr-coagent.png) no-repeat;
+	width: 25px;
+	height: 25px;
+	display: block;
+	position: absolute;
+	left: 0;
+}
+.content .login-qrcode .qr-coagent ul li em {
+	padding-left: 32px;
+	font-style: normal;
+	color: #999;
+	line-height: 25px;
+}
+.content .login-qrcode .qr-coagent .more-fast {
+	background-position: -27px;
+}
+.content .login-qrcode .qr-coagent .more-safe {
+	background-position: -54px;
+}
+.content .login-account {
+	padding: 0 20px;
+}
+.content .login-account .msg-warp {
+	min-height: 23px;
+	margin: 5px auto;
+}
+.content .login-account .form-item {
+	height: 38px;
+	width: 304px;
+	border: 1px solid #bdbdbd;
+	margin-bottom: 20px;
+	position: relative;
+}
+.content .login-account .form-item input {
+	width: 254px;
+	padding: 10px 0 10px 50px;
+	line-height: 18px;
+	border: 0;
+	font-size: 14px;
+	overflow: hidden;
+}
+.content .login-account .login-label {
+	width: 38px;
+	height: 38px;
+	background: url(../img/pwd-icons-new.png) no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-right: 1px solid #BDBDBD;
+}
+.content .login-account .pwd-label {
+	background-position: -48px 0;
+}
+.content .login-account .form-safe {
+	height: 18px;
+	border: 0;
+	color: #666;
+}
+.content .login-account .form-safe input {
+	width: 12px;
+	height: 12px;
+}
+.content .login-account .form-safe .forget-pw {
+	float: right;
+}
+.content .login-account .form-safe .forget-pw a {
+	color: #666;
+}
+.content .login-account .form-safe .forget-pw a:hover {
+	color: #e4393c;
+	text-decoration: underline;
+}
+.content .login-account .form-btn {
+	height: 34px;
+	border: 0;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.content .login-account .form-btn a {
+	color: white;
+	font-size: 20px;
+	line-height: 34px;
+	display: block;
+	background-color: #e4393c;
+}
+.container .coagent {
+	padding: 0 20px;
+	line-height: 50px;
+	background-color: #fcfcfc;
+	border-top: 1px solid #F4F4F4;
+}
+.container .coagent ul li {
+	float: left;
+	line-height: 50px;
+	position: relative;
+}
+.container .coagent ul li a {
+	padding-left: 24px;
+	color: #666;
+}
+.container .coagent ul li a:hover {
+	text-decoration: underline;
+	color: #e4393c;
+}
+.container .coagent ul li b {
+	width: 19px;
+	height: 18px;
+	display: block;
+	background: url(../img/QQ-weixin.png) no-repeat;
+	position: absolute;
+	left: 0;
+	top: 16px;
+}
+.container .coagent .line {
+	color: #ccc;
+	padding: 0 10px;
+}
+.container .coagent .QQ-icon {
+	background-position:  0 0;
+}
+.container .coagent .weixin-icon {
+	background-position:  -20px 0;
+}
+.container .coagent .extra-r {
+	float: right;
+}
+.container .coagent .extra-r a {
+	color: #b61d1d;
+	font-size: 14px;
+}
+.container .coagent .extra-r a b {
+	background: url(../img/pwd-icons-new.png) -104px -75px no-repeat;
+}
+.footer {
+	width: 990px;
+	height: 86px;
+	margin: 0 auto;
+	text-align: center;
+}
+.footer .link {
+	margin-top: 20px;
+	color: #666;
+}
+.footer .link a {
+	color: #666;
+	margin: 0 12px;
+}
+.footer .link a:hover {
+	text-decoration: underline;
+	color: #e4393c;
+}
+.footer .copyright {
+	color: #666;
+	margin-top: 15px;
+}

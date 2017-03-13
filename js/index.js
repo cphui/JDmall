@@ -18,7 +18,6 @@ $(function(){
 	$(window).resize(function(){
 		//设置左侧固定定位导航栏top
 		$("#jd-navbar").css("top",($(window).height() - $("#jd-navbar").height())/2 + "px");
-		
 		//设置左侧固定定位导航栏left
 		//宽度临界点
 		var widthCriticalPoint = $("#jd-navbar").width() + 50;
@@ -39,7 +38,6 @@ $(function(){
 		} else{
 			$("#jd-search").stop().css("top",-50 + "px");
 		}
-		
 		//显示or隐藏左侧固定定位导航栏
 		//领券中心区域顶部坐标
 		var couponOffsetTop = $("#coupon").offset().top;
@@ -48,13 +46,11 @@ $(function(){
 		} else{
 			$("#jd-navbar").fadeOut(400);
 		}
-		
 		//当用户滚动时，停止回到顶部
 		if(!isTop){
 			clearInterval(toTopTimer);
 		}
 		isTop = false;
-		
 		//当用户滚动时，左侧固定定位导航栏选中状态设置
 		var items = $("#nav-item").find(".nav-item");
 		var navbar = $("#jd-navbar");
@@ -76,7 +72,6 @@ $(function(){
            	 	navbar.find("[id=" + navSelectId + "]").addClass("navbar-item-on");
         		}
         }
-		
 	});
 	
 	//左侧固定定位导航栏点击效果
@@ -116,8 +111,21 @@ $(function(){
 		},30)
 	});
 	
+	//顶部导航地址显示、隐藏、点击效果
+	$(".location").hover(function(){
+		$(".province").show();
+	},function(){
+		$(".province").hide();
+	});
+	$(".province ul li").on("click",function(){
+		$(".province ul li").find("a").removeClass("province-active");
+		$(this).find("a").addClass("province-active");
+		$(".province-selected").html($(this).find("a").html());
+		$(".province").hide();
+	});
+	
 	//搜索区域-促销、广告选项卡
-	$('#info-notice .notice-title li').click(function(){
+	$('#info-notice .notice-title li').mouseover(function(){
 		$('#info-notice .notice-content .item').css('display','none');
 		$('#info-notice .notice-content .item').eq($(this).index()).css('display','block');
 		if ($(this).index() === 0) {
@@ -248,29 +256,7 @@ $(function(){
 		$(this).css("color","gray");
 	})
 	$(".logo-btn-prev").on("click",function(){	//左箭头点击事件
-		var thisUl = $(this).offsetParent().find("ul");
-		var ulWidth = $(this).offsetParent().width();
-		var logoIndex = thisUl.attr("logoIndex");
-		logoIndex--;
-		thisUl.attr("logoIndex",logoIndex);
-		thisUl.css({
-			"-webkit-transition" : "-webkit-transform .6s cubic-bezier(0,1.35,.83,.98)",
-			"-moz-transition" : "-moz-transform .6s cubic-bezier(0,1.35,.83,.98)",
-			"transition" : "-webkit-transform .6s cubic-bezier(0,1.35,.83,.98)"
-		})
-		thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
-		setTimeout(function(){
-			if (logoIndex == 0) {
-				logoIndex = 2
-				thisUl.attr("logoIndex",logoIndex);
-				thisUl.css({
-					"-webkit-transition" : "0s",
-					"-moz-transition" : "0s",
-					"transition" : "0s"
-				})
-				thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
-			}
-		},600);
+		logoMove("left",$(this));
 	})
 	$(".logo-btn-next").hover(function(){	//右箭头颜色改变
 		$(this).css("color","red");
@@ -278,8 +264,12 @@ $(function(){
 		$(this).css("color","gray");
 	})
 	$(".logo-btn-next").on("click",function(){	//右箭头点击事件
-		var thisUl = $(this).offsetParent().find("ul");
-		var ulWidth = $(this).offsetParent().width();
+		logoMove("right",$(this));
+	})
+	//direction 参数左边或者右边("left"、"right")
+	function logoMove(direction,This){
+		var thisUl = This.offsetParent().find("ul");
+		var ulWidth = This.offsetParent().width();
 		var logoIndex = thisUl.attr("logoIndex");
 		logoIndex++;
 		thisUl.attr("logoIndex",logoIndex);
@@ -290,19 +280,31 @@ $(function(){
 		})
 		thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
 		setTimeout(function(){
-			if (logoIndex == 3) {
-				logoIndex = 1
-				thisUl.attr("logoIndex",logoIndex);
-				thisUl.css({
-					"-webkit-transition" : "0s",
-					"-moz-transition" : "0s",
-					"transition" : "0s"
-				})
-				thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
+			if (direction === "left") {
+				if (logoIndex == 0) {
+					logoIndex = 2
+					thisUl.attr("logoIndex",logoIndex);
+					thisUl.css({
+						"-webkit-transition" : "0s",
+						"-moz-transition" : "0s",
+						"transition" : "0s"
+					})
+					thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
+				}
+			} else if (direction === "right") {
+				if (logoIndex == 3) {
+					logoIndex = 1
+					thisUl.attr("logoIndex",logoIndex);
+					thisUl.css({
+						"-webkit-transition" : "0s",
+						"-moz-transition" : "0s",
+						"transition" : "0s"
+					})
+					thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
+				}
 			}
 		},600);
-	})
-	
+	}
 	
 	
 	
