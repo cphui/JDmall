@@ -129,13 +129,13 @@ body {
 	z-index: 2;
 	display: none;
 }
-.shortcut .shortcut-w .location:hover {
-	border: 1px solid #ccc;
-	background-color: #fff;
-}
-.shortcut .shortcut-w .location:hover .province, .shortcut .shortcut-w .location:hover .province-clearline {
-	display: block;
-}
+/*.shortcut .shortcut-w .location:hover {*/
+	/*border: 1px solid #ccc;*/
+	/*background-color: #fff;*/
+/*}*/
+/*.shortcut .shortcut-w .location:hover .province, .shortcut .shortcut-w .location:hover .province-clearline {*/
+	/*display: block;*/
+/*}*/
 .shortcut .shortcut-w .location i {
 	color: #f10215;
 	font-size: 14px;
@@ -802,7 +802,9 @@ body {
 	text-align: center;
 	width: 30px;
 	height: 60px;
-	background-color: rgba(0,0,0,0.1);
+	color: white;
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+	background-color: rgba(0,0,0,0.2);
 	display: none;
 }
 .shopping-guide .sg-center .banner .banner-control-next {
@@ -814,7 +816,9 @@ body {
 	text-align: center;
 	width: 30px;
 	height: 60px;
-	background-color: rgba(0,0,0,0.1);
+	color: white;
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+	background-color: rgba(0,0,0,0.2);
 	display: none;
 }
 .shopping-guide .sg-center .banner .banner-control-prev i, .shopping-guide .sg-center .banner .banner-control-next i {
