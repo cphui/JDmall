@@ -98,12 +98,12 @@ $(function(){
 		//设置定时器
 		toTopTimer = setInterval(function(){
 			//获取滚动条距离顶部的高度
-			var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-// 			var osTop = $(document).scrollTop();
+//			var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var osTop = $(document).scrollTop();
 			//设置返回顶部的速度
 			var ispeen = Math.floor(-osTop / 5);
-			document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeen;
-// 			$(document).scrollTop(osTop + ispeen);
+//			document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeen;
+			$(document).scrollTop(osTop + ispeen);
 			isTop = true;
 			if(osTop == 0){
 				clearInterval(toTopTimer);
@@ -113,14 +113,8 @@ $(function(){
 	
 	//顶部导航地址显示、隐藏、点击效果
 	$(".location").hover(function(){
-		$(this).css("border","1px solid #ccc");
-        $(this).css("background-color","#fff");
-        $(this).find(".province-clearline").css("display","block");
 		$(".province").show();
 	},function(){
-        $(this).css("border","1px solid #E3E4E5");
-        $(this).css("background-color","transparent");
-        $(this).find(".province-clearline").css("display","none");
 		$(".province").hide();
 	});
 	$(".province ul li").on("click",function(){
@@ -128,9 +122,6 @@ $(function(){
 		$(this).find("a").addClass("province-active");
 		$(".province-selected").html($(this).find("a").html());
 		$(".province").hide();
-        $(".location").css("border","1px solid #E3E4E5");
-        $(".location").css("background-color","transparent");
-        $(".location").find(".province-clearline").css("display","none");
 	});
 	
 	//搜索区域-促销、广告选项卡
@@ -204,19 +195,19 @@ $(function(){
 		previous();
 	});
 	$('.banner-control-prev').hover(function(){
-		$(this).css("background-color","rgba(0,0,0,0.6)");
+		$(this).css("background-color","rgba(0,0,0,0.5)");
 	},function(){
-		$(this).css("background-color","rgba(0,0,0,0.2)");
+		$(this).css("background-color","rgba(0,0,0,0.1)");
 	})
 	//右箭头按钮点击
 	$('.banner-control-next').click(function(){    
 		next();
 	});
 	$('.banner-control-next').hover(function(){
-		$(this).css("background-color","rgba(0,0,0,0.6)");
+		$(this).css("background-color","rgba(0,0,0,0.5)");
 	},function(){
-		$(this).css("background-color","rgba(0,0,0,0.2)");
-	});
+		$(this).css("background-color","rgba(0,0,0,0.1)");
+	})
 	//分页按钮移入切换
 	bannerIndicator.mouseover(function(){
 		bannerIndex = $(this).index();
@@ -253,7 +244,6 @@ $(function(){
 	seckillTimer = setInterval(countDown,1000);
 	
 	//模块底部广告切换
-	var moveBtn = true;
 	$(".content-bottom ul").attr("logoIndex","1");	//为每一个ul列表添加标识
 	$(".content-bottom").hover(function(){	//显示隐藏箭头
 		$(this).find(".logo-btn-wrapper").css("display","block");
@@ -281,40 +271,38 @@ $(function(){
 		var thisUl = This.offsetParent().find("ul");
 		var ulWidth = This.offsetParent().width();
 		var logoIndex = thisUl.attr("logoIndex");
-		if (moveBtn) {
-            if (direction === "left") {
-                logoIndex--;
-            } else {
-                logoIndex++;
-            }
-            moveBtn = false;
-            thisUl.attr("logoIndex",logoIndex);
-            thisUl.css({
-                "-webkit-transition" : "-webkit-transform .6s cubic-bezier(0,1.35,.83,.98)",
-                "-moz-transition" : "-moz-transform .6s cubic-bezier(0,1.35,.83,.98)",
-                "transition" : "-webkit-transform .6s cubic-bezier(0,1.35,.83,.98)"
-            })
-            thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
-		}
-
+		logoIndex++;
+		thisUl.attr("logoIndex",logoIndex);
+		thisUl.css({
+			"-webkit-transition" : "-webkit-transform .6s cubic-bezier(0,1.35,.83,.98)",
+			"-moz-transition" : "-moz-transform .6s cubic-bezier(0,1.35,.83,.98)",
+			"transition" : "-webkit-transform .6s cubic-bezier(0,1.35,.83,.98)"
+		})
+		thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
 		setTimeout(function(){
 			if (direction === "left") {
 				if (logoIndex == 0) {
-					logoIndex = 2;
+					logoIndex = 2
+					thisUl.attr("logoIndex",logoIndex);
+					thisUl.css({
+						"-webkit-transition" : "0s",
+						"-moz-transition" : "0s",
+						"transition" : "0s"
+					})
+					thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
 				}
 			} else if (direction === "right") {
 				if (logoIndex == 3) {
-					logoIndex = 1;
+					logoIndex = 1
+					thisUl.attr("logoIndex",logoIndex);
+					thisUl.css({
+						"-webkit-transition" : "0s",
+						"-moz-transition" : "0s",
+						"transition" : "0s"
+					})
+					thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)")
 				}
 			}
-            thisUl.attr("logoIndex",logoIndex);
-            thisUl.css({
-                "-webkit-transition" : "0s",
-                "-moz-transition" : "0s",
-                "transition" : "0s"
-            });
-            thisUl.css("transform","translateX("+(-ulWidth*logoIndex)+"px)");
-            moveBtn = true;
 		},600);
 	}
 	

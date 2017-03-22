@@ -10,7 +10,6 @@
 	zoom: 1;
 }
 
-input::-ms-clear, ::-ms-reveal{display: none;}
 .header {
 	height: 110px;
 	background: url(../img/headbg.jpg) repeat-x left bottom;
@@ -88,11 +87,9 @@ input::-ms-clear, ::-ms-reveal{display: none;}
 .container .form-item input {
 	font-size: 14px;
 	border: 0;
-	height: 19px;
+	line-height: 52px;
 	width: 190px;
-	padding-left: 20px;
-	padding-top: 16px;
-	padding-bottom: 11px;
+	margin-left: 20px;
 }
 .container .form-item .i-status {
 	width: 16px;
